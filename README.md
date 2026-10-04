@@ -16,3 +16,5 @@ A free, plain-English cheat sheet of Claude Code commands, checked against the o
 New commands land in the Rue Athena Dispatch newsletter first: [dispatch.rueathena.com](https://dispatch.rueathena.com)
 
 Made by [Ted Sandico](https://rueathena.com), GTM engineer at Rue Athena.
+
+Built with Grok Bot.
