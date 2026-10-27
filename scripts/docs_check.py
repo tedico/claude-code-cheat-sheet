@@ -238,7 +238,9 @@ def build_brief(card: dict, docs: list[str]) -> str:
 
 
 def parse_reply(text: str) -> list[str] | None:
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    # agy can append an HTML-comment marker such as <!-- GOAL_COMPLETE -->; it is not part of the reply
+    lines = [line.strip() for line in text.splitlines()
+             if line.strip() and not re.fullmatch(r"<!--.*-->", line.strip())]
     if not lines or any(line.startswith("BLOCKED") for line in lines):
         return None
     outdated: list[str] = []

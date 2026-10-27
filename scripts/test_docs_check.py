@@ -45,6 +45,7 @@ def test_command_rows_matches_the_command_token():
 
 def test_parse_reply_ok_outdated_blocked_and_prose():
     assert docs_check.parse_reply("OK") == []
+    assert docs_check.parse_reply("OK\n<!-- GOAL_COMPLETE -->\n") == []  # seen from agy 2026-10-27
     reply = "\n".join(
         [
             'OUTDATED: "claim one" -> "doc one"',
