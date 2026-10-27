@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claude Code Commands Cheat Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Lato:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap">
+<style>
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: Letter;
+    margin: 0.45in 0.6in;
+  }
+
+  html {
+    background: #fff;
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    background: #fff;
+    color: #1a1a1a;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  @media screen {
+    body {
+      width: 8.5in;
+      margin: 0 auto;
+      padding: 0.45in 0.6in;
+    }
+  }
+
+  @media print {
+    body {
+      width: auto;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  header {
+    margin: 0 0 14px;
+    padding: 0 0 12px;
+    border-bottom: 3px solid #1a1a1a;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 8px;
+    color: #E4694A;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .kicker::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 20px;
+    height: 3px;
+    background: #E4694A;
+    border-radius: 1px;
+  }
+
+  h1 {
+    margin: 0 0 8px;
+    color: #141414;
+    font-family: "Lato", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+  }
+
+  .lead {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .sub {
+    margin: 2px 0 0;
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .words {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    background: #F3F4F6;
+    border-radius: 4px;
+    color: #3a3a3a;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .words strong {
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+
+  .words em {
+    color: #1a1a1a;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .card {
+    display: block;
+    margin: 0 0 14px;
+    background: #fff;
+    border: 1px solid #E0E0E4;
+    border-left: 5px solid #E4694A;
+    border-radius: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .card:last-child {
+    margin-bottom: 0;
+  }
+
+  .card h2 {
+    margin: 0;
+    padding: 11px 16px 10px;
+    border-bottom: 1px solid #E6E6EA;
+    color: #1a1a1a;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .card dl {
+    margin: 0;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid #E8E8EC;
+  }
+
+  .row:last-child {
+    border-bottom: none;
+  }
+
+  .row dt {
+    margin: 0;
+    color: #E4694A;
+    font-family: "Lato", sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.3;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .row dd {
+    margin: 0;
+    color: #2a2a2a;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1.45;
+  }
+
+  .card code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.84em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #222;
+    background: #F2F3F5;
+    border: 1px solid #E0E1E5;
+    border-radius: 3px;
+    padding: 0 5px 1px;
+    white-space: nowrap;
+  }
+
+  footer {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #D5D5D8;
+    text-align: center;
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  footer p {
+    margin: 0;
+    color: #888;
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  footer a {
+    color: #E4694A;
+    font-weight: 400;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">RUE ATHENA DISPATCH</p>
+    <h1>Claude Code Commands Cheat Sheet</h1>
+    <p class="lead">Every command from our videos, in plain English.</p>
+    <p class="sub">Each one was run on our own setup and checked against the Anthropic docs. What you'll see is what we saw.</p>
+    <p class="words"><strong>Words on this page:</strong> <em>Context window</em> is everything Claude can see in a session at once. <em>CLAUDE.md</em> is a plain-text file of instructions Claude reads at the start of every session. <em>Skills</em> are saved instructions Claude uses for specific jobs. <em>MCP servers</em> are connectors that plug Claude into outside tools. <em>Effort</em> is how hard the model thinks before it answers.</p>
+  </header>
+
+  <article class="card">
+    <h2>/doctor prompt-audit</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It checks your CLAUDE.md, AGENTS.md, skills, rules, and other files under <code>.claude/</code> for outdated or conflicting instructions.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it after you retire a plan, rename a folder, or add a skill, because your files may still say what used to be true.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Check your version with <code>claude --version</code>, then run <code>claude update</code> if needed, because the audit requires v2.1.283 or later. Then type <code>/doctor prompt-audit</code>, or add a path like <code>/doctor prompt-audit .claude/skills/deploy</code> to check only the part you changed.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd>You'll get a report with proposed edits, and nothing changes until you approve it. Our Sep 25 run took 6m 50s across 25 skills and found 19 issues.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/context</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It shows what's filling Claude's context window as a colored grid by category. The categories include CLAUDE.md and memory files, skill descriptions, and MCP tools and server instructions. By default, only skill descriptions and MCP tool names load, not everything.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it when a session feels sluggish, before a long task, and after adding a skill or MCP server, because each one adds to what loads before you type a word.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/context</code>. In fullscreen, type <code>/context all</code>, because fullscreen collapses the per-item list.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd>You'll see the grid plus suggestions about context-heavy tools, memory bloat, and capacity. It deletes nothing, so you decide whether to <code>/compact</code>, <code>/clear</code>, or edit your files with <code>/memory</code>.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/model</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It opens a picker to switch Claude's model and, if the model supports it, its effort. You choose whether the switch is your new default or for this session only.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it when a task is lighter or harder than usual. You can run it while Claude is still responding: once you confirm, the switch takes effect without waiting for the response to finish.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/model</code>. Arrow to a model, then use left and right to adjust effort. Press Enter to make it your default, or press <code>s</code> to use it for this session only.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd>On Oct 6 we switched a fresh Opus 5.5 session to Sonnet 5 at xhigh effort with <code>s</code>, and the default for new sessions stayed Opus 5.5. Press Escape and the picker keeps what you had.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/permissions</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It shows and edits the three lists every tool call is checked against. Allow skips the prompt, ask always confirms, and deny always refuses.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it in your first session in a repo, when you keep approving the same prompt, and the moment you find a gap. You can run it while Claude is responding, and your change applies from Claude's next tool call.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/permissions</code>, or its alias <code>/allowed-tools</code>. Pick a tab (allow, ask, deny, recent auto mode denials, auto mode rules, or working directories), choose Add a new rule, type it, and choose where it's saved.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd>Every rule by scope, and you can remove any of them from the same dialog. Our Oct 6 run showed 31 allow, 0 ask, 0 deny. We added one deny rule for <code>gh pr merge</code>, saved to user settings.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/clear</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It starts a fresh conversation with an empty context. The old conversation is kept, and you can bring it back with <code>/resume</code>.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it when you finish one task and start another, or when Claude keeps returning to something you've moved past. To stay in the same conversation and just free up room, use <code>/compact</code> instead.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/clear</code>. Add a name to label the old conversation in the <code>/resume</code> picker. <code>/reset</code> and <code>/new</code> do the same thing.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd>On Oct 6 our context fell from 79.2k tokens (8% of the window) to 39.6k (4%). Messages fell from 41.1k tokens to 1.6k. Memory files held at 8.7k, so CLAUDE.md stayed loaded.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/login</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It signs you in and sets who pays: a Claude subscription, an Anthropic Console account billed by API usage, or a third-party platform like Amazon Bedrock.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it when you set up a new machine, when you change plans, or when you want to switch between your subscription and API billing.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/login</code>, pick one of the three options, and sign in. Then type <code>/status</code> to check which one you're on.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT YOU'LL SEE</dt>
+        <dd><code>/status</code> shows your login method. Ours said Claude Pro account: a subscription, not API billing. Press Escape and it says Login interrupted, and your login doesn't change.</dd>
+      </div>
+    </dl>
+  </article>
+
+  <article class="card">
+    <h2>/goal</h2>
+    <dl>
+      <div class="row">
+        <dt>WHAT IT DOES</dt>
+        <dd>It gives Claude a finish line. After every turn, a separate small, fast model reads the conversation and says met, not yet, or impossible. Not yet, and Claude starts the next turn on its own.</dd>
+      </div>
+      <div class="row">
+        <dt>WHEN TO RUN IT</dt>
+        <dd>Run it whenever you'd otherwise type "keep going." A goal lasts for this session only. Pair it with auto mode, or run it headless with <code>claude -p</code>.</dd>
+      </div>
+      <div class="row">
+        <dt>HOW TO RUN IT</dt>
+        <dd>Type <code>/goal</code> and your condition. A condition that holds up has one end state you can measure, the check that proves it (like the test command exiting 0), and what must not change on the way. Add "or stop after 10 turns" if you want a ceiling.</dd>
+      </div>
+      <div class="row">
+        <dt>WHAT TO WATCH</dt>
+        <dd>The judge doesn't run anything. It only reads what Claude showed in the chat, so ask for proof Claude has to print. Not <code>/loop</code> (that runs on a timer), and not a Stop hook (that lives in your settings file).</dd>
+      </div>
+    </dl>
+  </article>
+
+  <footer>
+    <p>New command every episode. Get the next one in the Rue Athena Dispatch: <a href="https://dispatch.rueathena.com">dispatch.rueathena.com</a></p>
+  </footer>
+</body>
+</html>

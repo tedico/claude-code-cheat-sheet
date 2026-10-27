@@ -10,6 +10,13 @@ A free, plain-English cheat sheet of Claude Code commands, checked against the o
 |---|---|
 | `/doctor prompt-audit` | Checks your CLAUDE.md, skills, and rules for outdated or conflicting instructions, and proposes edits you approve. |
 | `/context` | Shows what's filling Claude's context window as a colored grid by category. It deletes nothing. |
+| `/model` | Switches the model and its effort. Press Enter to make it your default, or `s` for this session only. |
+| `/permissions` | Shows and edits the allow, ask and deny rules every tool call is checked against. |
+| `/clear` | Starts a fresh conversation. The old one is kept, and `/resume` brings it back. |
+| `/login` | Sets who pays: a Claude subscription, API billing through the Console, or a platform like Amazon Bedrock. |
+| `/goal` | Gives Claude a finish line. A separate model checks it after every turn, and Claude keeps going until it's met. |
+
+The PDF is printed from [`cheat-sheet.html`](cheat-sheet.html) in Chrome (US Letter).
 
 ## Get the next command
 
