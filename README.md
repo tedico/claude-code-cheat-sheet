@@ -18,6 +18,10 @@ A free, plain-English cheat sheet of Claude Code commands, checked against the o
 
 The PDF is printed from [`cheat-sheet.html`](cheat-sheet.html) in Chrome (US Letter).
 
+## Kept current
+
+Every other Monday, [`scripts/docs_check.py`](scripts/docs_check.py) compares each card against the official [Claude Code commands reference](https://code.claude.com/docs/en/commands.md) and the pages it links to. A Gemini checker (via the `agy` CLI) flags any claim the docs now contradict. Drift opens a ticket. `--dry-run` prints the findings instead.
+
 ## Get the next command
 
 New commands land in the Rue Athena Dispatch newsletter first: [dispatch.rueathena.com](https://dispatch.rueathena.com)
